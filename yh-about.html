@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沧州圆浩管道科技 | 关于我们</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",Arial,sans-serif;}
+        body{background:#f5f7fa;color:#333;line-height:1.7;}
+        .container{max-width:1240px;margin:48px auto;padding:0 16px;}
+        .title{text-align:center;margin-bottom:36px;}
+        .title h2{font-size:28px;color:#16365c;margin-bottom:10px;font-weight:600;}
+        .title .divider{display:inline-block;width:64px;height:3px;background:#245499;}
+
+        .header{background:#16365c;color:#fff;}
+        .top-bar{max-width:1240px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;font-size:14px;flex-wrap:wrap;gap:10px;}
+        .lang-switch{cursor:pointer;background:#245499;color:#fff;border:none;padding:5px 14px;border-radius:4px;font-size:14px;}
+        .nav-wrap{background:#1a4074;}
+        .nav{max-width:1240px;margin:0 auto;display:flex;padding:0 16px;flex-wrap:wrap;}
+        .nav a{color:#fff;text-decoration:none;padding:17px 24px;display:block;font-size:15px;transition:background 0.24s;}
+        .nav a:hover{background:#245499;}
+        .nav a.active{background:#245499;}
+
+        .about-row{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;}
+        .about-placeholder{width:100%;height:346px;background:#c9d8eb;display:flex;align-items:center;justify-content:center;color:#16365c;border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,0.08);padding:0;overflow:hidden;}
+        .about-placeholder img{width:100%;height:100%;object-fit:cover;}
+        .about-text h3{font-size:23px;color:#16365c;margin-bottom:16px;}
+
+        footer{background:#16365c;color:#fff;padding:38px 0;margin-top:70px;}
+        .footer-inner{max-width:1240px;margin:0 auto;padding:0 16px;text-align:center;font-size:14.5px;}
+
+        @media(max-width:992px){
+            .about-row{grid-template-columns:1fr;}
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="top-bar">
+            <div id="top-welcome"></div>
+            <div style="display:flex;gap:14px;align-items:center;">
+                <span>+86 15138786332 | 502485967@qq.com</span>
+                <button class="lang-switch" id="langBtn"></button>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+        <div class="nav" id="mainNav"></div>
+    </div>
+
+    <section class="container">
+        <div class="title">
+            <h2 id="about-title"></h2>
+            <span class="divider"></span>
+        </div>
+        <div class="about-row">
+            <div class="about-placeholder" id="about-img-txt"></div>
+            <div class="about-text">
+                <h3 id="about-subtitle"></h3>
+                <div id="about-content"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner" id="footer-text"></div>
+    </footer>
+
+<script>
+const i18n = {
+    "zh-CN": {
+        topWelcome: "欢迎访问沧州圆浩管道科技有限责任公司官网",
+        langBtnText: "English",
+        nav:[
+            {text:"首页","href":"yH-home.html","active":false},
+            {text:"关于我们","href":"yH-about.html","active":true},
+            {text:"产品中心","href":"yH-product.html","active":false},
+            {text:"资质检测","href":"yH-certificate.html","active":false},
+            {text:"设备实力","href":"yH-equipment.html","active":false},
+            {text:"联系我们","href":"yH-contact.html","active":false},
+        ],
+        aboutTitle:"关于圆浩",
+        aboutImg:"images/factory.jpg",
+        aboutImgTxt:"工厂厂区实拍图",
+        aboutSubtitle:"企业简介",
+        aboutContent:`
+            <p>沧州圆浩管道科技有限责任公司坐落于河北省沧州市沧县凤凰工业园区，是一家专注管道防腐防水材料研发、生产销售的科技型中小企业。</p>
+            <p>公司主营热收缩套、热收缩带、无溶剂环氧底漆、聚乙烯/聚丙烯防腐胶带、环氧煤沥青冷缠带、粘弹体防腐产品、光敏固化玻璃钢保护套、补伤片、补伤棒、定向钻穿越专用热收缩带等全系列管道防腐材料，产品符合GB/T23257国标，广泛用于石油、燃气、化工、输水金属管道外防腐工程。</p>
+            <p>公司拥有ISO9001质量管理、ISO14001环境、ISO45001职业健康安全三大体系认证，具备完善检测手段，产品经过国家管网科研院等第三方权威机构检测，远销国内各大工程以及南亚、中亚、中东、南美海外市场。</p>
+            <p>企业理念：追求卓越·创造价值；质量第一，信誉至上。</p>
+        `,
+        footerText:"©2026 沧州圆浩管道科技有限责任公司 版权所有｜追求卓越·创造价值"
+    },
+    "en":{
+        topWelcome:"Welcome to Cangzhou Yuanhao Pipeline Technology Co.,Ltd",
+        langBtnText:"中文",
+        nav:[
+            {text:"Home","href":"yH-home.html","active":false},
+            {text:"About Us","href":"yH-about.html","active":true},
+            {text:"Products","href":"yH-product.html","active":false},
+            {text:"Certificates","href":"yH-certificate.html","active":false},
+            {text:"Facilities","href":"yH-equipment.html","active":false},
+            {text:"Contact","href":"yH-contact.html","active":false},
+        ],
+        aboutTitle:"About Yuanhao",
+        aboutImg:"images/factory.jpg",
+        aboutImgTxt:"Factory Site Photo",
+        aboutSubtitle:"Company Profile",
+        aboutContent:`
+            <p>Cangzhou Yuanhao Pipeline Technology Co.,Ltd is located in Fenghuang Industrial Park, Fenghuadian Township, Cangxian County, Hebei Province. We are a tech‑oriented enterprise specializing in R&D, manufacturing and sales of pipeline anti‑corrosion & waterproof materials.</p>
+            <p>Our main products include heat‑shrinkable sleeves & tapes, directional‑drilling reinforced heat‑shrink tapes, solvent‑free epoxy primer, PE / PP anti‑corrosion tapes, epoxy coal‑tar cold‑wound tapes, visco‑elastic tape & mastic, CRP repair patches, repair sticks, UV‑cured FRP sleeves and other full‑range pipeline corrosion protection products. Our products comply with GB/T23257 national standard.</p>
+            <p>Widely applied in oil‑gas, chemical industry, water supply & drainage steel pipeline anti‑corrosion projects. We hold ISO9001 Quality, ISO14001 Environmental, ISO45001 Occupational Health & Safety management system certificates. Products have passed third‑party tests by SGRI. Our goods are exported to South Asia, Central Asia, Middle East, South America and other overseas markets.</p>
+            <p>Corporate Motto: Pursue Excellence, Create Value. Quality First, Reputation Supreme.</p>
+        `,
+        footerText:"©2026 Cangzhou Yuanhao Pipeline Technology Co.,Ltd All Rights Reserved | Pursue Excellence · Create Value"
+    }
+};
+let currentLang = localStorage.getItem("siteLang") || "zh-CN";
+const htmlDom = document.documentElement;
+function renderPage(lang){
+    const t = i18n[lang];
+    htmlDom.lang = lang;
+    document.getElementById("top-welcome").innerText = t.topWelcome;
+    document.getElementById("langBtn").innerText = t.langBtnText;
+    let navHtml = "";
+    t.nav.forEach(item=> navHtml += `<a href="${item.href}" ${item.active?'class="active"':''}>${item.text}</a>`);
+    document.getElementById("mainNav").innerHTML = navHtml;
+    document.getElementById("about-title").innerText = t.aboutTitle;
+    document.getElementById("about-img-txt").innerHTML = `<img src="${t.aboutImg}" alt="${t.aboutImgTxt}">`;
+    document.getElementById("about-subtitle").innerText = t.aboutSubtitle;
+    document.getElementById("about-content").innerHTML = t.aboutContent;
+    document.getElementById("footer-text").innerText = t.footerText;
+}
+document.getElementById("langBtn").addEventListener("click",function(){
+    currentLang = currentLang === "zh-CN" ? "en" : "zh-CN";
+    localStorage.setItem("siteLang",currentLang);renderPage(currentLang);
+})
+renderPage(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沧州圆浩管道科技 | 资质检测</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",Arial,sans-serif;}
+        body{background:#f5f7fa;color:#333;line-height:1.7;}
+        .container{max-width:1240px;margin:48px auto;padding:0 16px;}
+        .title{text-align:center;margin-bottom:36px;}
+        .title h2{font-size:28px;color:#16365c;margin-bottom:10px;font-weight:600;}
+        .title .divider{display:inline-block;width:64px;height:3px;background:#245499;}
+
+        .header{background:#16365c;color:#fff;}
+        .top-bar{max-width:1240px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;font-size:14px;flex-wrap:wrap;gap:10px;}
+        .lang-switch{cursor:pointer;background:#245499;color:#fff;border:none;padding:5px 14px;border-radius:4px;font-size:14px;}
+        .nav-wrap{background:#1a4074;}
+        .nav{max-width:1240px;margin:0 auto;display:flex;padding:0 16px;flex-wrap:wrap;}
+        .nav a{color:#fff;text-decoration:none;padding:17px 24px;display:block;font-size:15px;transition:background 0.24s;}
+        .nav a:hover{background:#245499;}
+        .nav a.active{background:#245499;}
+
+        .cert-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+        .cert-item{background:#fff;padding:16px 14px;border-radius:7px;text-align:center;box-shadow:0 1px 8px rgba(0,0,0,0.05);}
+        .cert-ph{height:136px;background:#e8edf3;display:flex;align-items:center;justify-content:center;border-radius:4px;color:#666;padding:0;overflow:hidden;}
+        .cert-ph img{width:100%;height:100%;object-fit:cover;}
+        .cert-item h5{margin-top:12px;color:#224b88;font-size:14.2px;font-weight:500;}
+
+        footer{background:#16365c;color:#fff;padding:38px 0;margin-top:70px;}
+        .footer-inner{max-width:1240px;margin:0 auto;padding:0 16px;text-align:center;font-size:14.5px;}
+
+        @media(max-width:992px){
+            .cert-wrap{grid-template-columns:repeat(2,1fr);}
+        }
+        @media(max-width:640px){
+            .cert-wrap{grid-template-columns:1fr;}
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="top-bar">
+            <div id="top-welcome"></div>
+            <div style="display:flex;gap:14px;align-items:center;">
+                <span>+86 15138786332 | 502485967@qq.com</span>
+                <button class="lang-switch" id="langBtn"></button>
+            </div>
+        </div>
+    </div>
+    <div class="nav-wrap">
+        <div class="nav" id="mainNav"></div>
+    </div>
+
+    <section class="container">
+        <div class="title">
+            <h2 id="cert-title"></h2>
+            <span class="divider"></span>
+        </div>
+        <div class="cert-wrap" id="certWrap"></div>
+    </section>
+
+    <footer>
+        <div class="footer-inner" id="footer-text"></div>
+    </footer>
+
+<script>
+const i18n = {
+    "zh-CN": {
+        topWelcome: "欢迎访问沧州圆浩管道科技有限责任公司官网",
+        langBtnText: "English",
+        nav:[
+            {text:"首页","href":"yH-home.html","active":false},
+            {text:"关于我们","href":"yH-about.html","active":false},
+            {text:"产品中心","href":"yH-product.html","active":false},
+            {text:"资质检测","href":"yH-certificate.html","active":true},
+            {text:"设备实力","href":"yH-equipment.html","active":false},
+            {text:"联系我们","href":"yH-contact.html","active":false},
+        ],
+        certTitle:"资质与检测报告",
+        certs:[
+            {img:"images/cert-business.jpg",phTxt:"营业执照",title:"营业执照"},
+            {img:"images/cert-sme.jpg",phTxt:"科技型中小企业证书",title:"河北省科技型中小企业"},
+            {img:"images/cert-iso9001.jpg",phTxt:"ISO9001",title:"ISO9001质量管理体系"},
+            {img:"images/cert-iso14001.jpg",phTxt:"ISO14001",title:"ISO14001环境管理体系"},
+            {img:"images/cert-iso45001.jpg",phTxt:"ISO45001",title:"ISO45001职业健康安全体系"},
+            {img:"images/cert-aaa.jpg",phTxt:"AAA Credit",title:"AAA企业信用等级"},
+            {img:"images/cert-sgri.jpg",phTxt:"SGRI Report",title:"国家管网科研院检测报告"},
+            {img:"images/cert-lab.jpg",phTxt:"Lab Test",title:"第三方产品检测报告"},
+        ],
+        footerText:"©2026 沧州圆浩管道科技有限责任公司 版权所有｜追求卓越·创造价值"
+    },
+    "en":{
+        topWelcome:"Welcome to Cangzhou Yuanhao Pipeline Technology Co.,Ltd",
+        langBtnText:"中文",
+        nav:[
+            {text:"Home","href":"yH-home.html","active":false},
+            {text:"About Us","href":"yH-about.html","active":false},
+            {text:"Products","href":"yH-product.html","active":false},
+            {text:"Certificates","href":"yH-certificate.html","active":true},
+            {text:"Facilities","href":"yH-equipment.html","active":false},
+            {text:"Contact","href":"yH-contact.html","active":false},
+        ],
+        certTitle:"Certificates & Test Reports",
+        certs:[
+            {img:"images/cert-business.jpg",phTxt:"Business License",title:"Business License"},
+            {img:"images/cert-sme.jpg",phTxt:"S&T SME Certificate",title:"Hebei Provincial S&T SME"},
+            {img:"images/cert-iso9001.jpg",phTxt:"ISO9001",title:"ISO9001 Quality System"},
+            {img:"images/cert-iso14001.jpg",phTxt:"ISO14001",title:"ISO14001 Environment System"},
+            {img:"images/cert-iso45001.jpg",phTxt:"ISO45001",title:"ISO45001 OHS System"},
+            {img:"images/cert-aaa.jpg",phTxt:"AAA Credit",title:"AAA Enterprise Credit Rating"},
+            {img:"images/cert-sgri.jpg",phTxt:"SGRI Report",title:"SGRI Third‑Party Report"},
+            {img:"images/cert-lab.jpg",phTxt:"Lab Test",title:"Independent Lab Test Reports"},
+        ],
+        footerText:"©2026 Cangzhou Yuanhao Pipeline Technology Co.,Ltd All Rights Reserved | Pursue Excellence · Create Value"
+    }
+};
+let currentLang = localStorage.getItem("siteLang") || "zh-CN";
+const htmlDom = document.documentElement;
+function renderPage(lang){
+    const t = i18n[lang];
+    htmlDom.lang = lang;
+    document.getElementById("top-welcome").innerText = t.topWelcome;
+    document.getElementById("langBtn").innerText = t.langBtnText;
+    let navHtml = "";
+    t.nav.forEach(item=> navHtml += `<a href="${item.href}" ${item.active?'class="active"':''}>${item.text}</a>`);
+    document.getElementById("mainNav").innerHTML = navHtml;
+    document.getElementById("cert-title").innerText = t.certTitle;
+    let certHtml = "";
+    t.certs.forEach(c=>{
+        certHtml += `
+        <div class="cert-item">
+            <div class="cert-ph">
+                <img src="${c.img}" alt="${c.phTxt}">
+            </div>
+            <h5>${c.title}</h5>
+        </div>
+        `
+    })
+    document.getElementById("certWrap").innerHTML = certHtml;
+    document.getElementById("footer-text").innerText = t.footerText;
+}
+document.getElementById("langBtn").addEventListener("click",function(){
+    currentLang = currentLang === "zh-CN" ? "en" : "zh-CN";
+    localStorage.setItem("siteLang",currentLang);renderPage(currentLang);
+})
+renderPage(currentLang);
+</script>
+</body>
+</html>
